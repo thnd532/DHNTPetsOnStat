@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>DHNT Pets Online Station</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="function.js"></script>
+
+  <style>
+
+    body{
+      background-image: url();
+    }
+
+    jumbotron{ 
+      color:black;
+    }
+
+    #cover{
+      background: url("coverbg.jpg") no-repeat center fixed;
+      background-size: cover; 
+    }
+
+    div.transbox {
+      font: bold 25px Georgia, "Times New Roman", serif;
+      margin: 30px;
+      background-color: #ffffff;
+      border: 1px solid black;
+      opacity: 0.6;
+    }
+
+    div.transbox h1, div.transbox h2{
+
+      margin: 5%;
+      font-weight:bold;
+      color: #000000;
+    }
+
+    #footer {
+      background-color: #4d4d4d;
+      color: white;
+    }
+    
+    #Navbar{
+      font-size: 17px;
+    }
+
+    .MyLogo img{
+      position: absolute;
+      top: 8px;
+      right: 33px;
+      width: 55px;
+      length: 50px;
+      border-radius: 50%;
+    }
+    
+    .tab-content p {
+      font-size: 18px;
+    }
+
+    #aboutus ul{
+       list-style-image: url('bullet.jpg');
+    }
+
+    hr{
+      height:15px;
+      border-width:0;
+      color:gray;
+      background-image:url("hr.jpg");
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td, th {
+      border: 2px solid black;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+    div.fixed {
+      position: fixed;
+      bottom: 10px;
+      right: 0;
+      width: 90px;
+      height: 75px;
+      border: 2px solid black;
+      background-color: #f0f0f5;
+      padding: 8px;
+    }
+
+    div.fixed2 {
+      position: fixed;
+      bottom: 100px;
+      right: 0;
+      width: 90px;
+      height: 75px;
+      border: 2px solid black;
+      background-color: #f0f0f5;
+      padding: 8px;
+    }
+
+    [id^="myImg"] {
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    [id^="myImg"]:hover {opacity: 0.7;}
+
+    .modal, .modal2 {
+      display: none; 
+      position: fixed; 
+      z-index: 1; 
+      padding-top: 100px; 
+      left: 0;
+      top: 0;
+      width: 100%; 
+      height: 100%; 
+      overflow: auto; 
+      background-color: rgb(0,0,0); 
+      background-color: rgba(0,0,0,0.9); 
+    }
+
+    .modal-content, .modal-content2 {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+    }
+
+    #caption, #caption2 {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+      text-align: center;
+      color: #ccc;
+      padding: 10px 0;
+      height: 150px;
+    }
+
+    .modal-content, #caption, .modal-content2, #caption2 {  
+      animation-name: zoom;
+      animation-duration: 0.6s;
+    }
+
+    @keyframes zoom {
+      from {transform: scale(0.1)} 
+      to {transform: scale(1)}
+    }
+
+    .close, .close2 {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    
+    .close:hover,
+    .close:focus,
+    .close2:hover,
+    .close2:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .PhotoG{
+      border: 3px solid grey;
+      height: 250px;
+      overflow-y: scroll;
+    }
+
+    .photoInG {
+      margin: 5px;
+      border: 1px solid grey;
+      float: left;
+      width: 165px;
+    }
+
+    .photoInG img {
+      width: 100%;
+      height: auto;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .desc {
+      padding: 12px;
+      text-align: center;
+      background-color: #f0f0f5;
+    }
+   
+  </style>
+</head>
+<body>
+
+
+<div class="jumbotron text-center" id="cover" style="margin-bottom:0">
+  <div class="transbox">
+    <h1>DHNT Pets Station</h1>
+    <h2>Pets Adoption & Pet Supplies Store</h2>
+    <h2>Here, You can find what you want !</h2>
+  </div>
+    <div class="MyLogo"><img src="logo.jpg" alt="My Logo"></div>
+</div>
+
+<div class="container">
+  <ul class="nav nav-tabs justify-content-center" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#aboutus">About US</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Our pets</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" data-toggle="tab" href="#cats">Cats</a>
+        <a class="dropdown-item" data-toggle="tab" href="#dogs">Dogs</a>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#petsupplies">Our Pet Supplies</a>
+    </li> 
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#procedures">Adoption & Purchase Procedures</a>
+    </li>    
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#contactus">Contact US</a>
+    </li> 
+  </ul>
+ 
+
+  <div class="tab-content">
+        <div id="aboutus" class="container tab-pane active"><br>
+          <h3>About US</h3><br>
+          <h5>Our goal: Provide you the best pet-adoption experience and pet-related supplies!</h5><br>
+          <h5 style="text-decoration: underline;">Pet Adoption</h5>
+	  <p>We have co-operated with SPCA and other pets organization for many years. Not all dogs and cats can have a stable home, and we keen to find a responsible owner for the wandering animals. What we hope is somehow easy but difficult to come true, so we need your help.</p>
+	  <p>In our Station, there are many lovely animals that still can't find their home. If you want to keep a pet, instead of buying a dog, why not consider adoption? There are some advantages for adopting pets:</p>
+	  <ul>
+	    <li> You can choose more types of cats/dogs with a nice characteristic ~</li>
+	    <li> Animals' health can be more guarantee!</li>
+	    <li> Save money, as you can enjoy many discounts offered by different pets organizations $$</li>
+	    <li> Give an opportunity to wandering dogs/cats. You save a life!</li>
+	    <li> Gain lots of supports and training services from us </li>
+	    <li> Most important, in term of cuteness, there is no difference between adopted dogs/cats and those in pets shop ~</li>
+	  </ul>
+	  <p>So, let's start an adoption for <b>FREE</b> ! </p><br>
+  	  <hr><br>
+	  <h5 style="text-decoration: underline;">Pet Supplies</h5>
+	  <p>We provide high quality pet supplies such as pet food, toys, beds etc with affordable prices. We also periodically offer discounts, so don't miss out on it! </p>
+        </div>      	
+
+        <div id="cats" class="container tab-pane fade"><br>
+          <h3>Our Cats</h3><br>
+	  <p>* Click the photos to see the detailed information for each cat</p><br>
+	  <img id="myImg1" src="catAvan.jpg" alt="Name: Avan (Boy) <br> Age: 3 years old <br> Type: British Shorthair <br> I am so nice !" title="cat-Avan" onclick = "myFunction1()">
+	  <div id="myModal" class="modal">
+ 	   <span class="close">&times;</span>
+ 	   <img class="modal-content" id="img01">
+	    <div id="caption"></div>
+	  </div>
+
+	  <img id="myImg2" src="catBell.jpg" alt="Name: Bell (Girl) <br> Age: 1 years old <br> Type: British Shorthair <br> I am so quiet !" title="cat-Bell" onclick = "myFunction2()">
+	  <div id="myModal" class="modal">
+ 	   <span class="close">&times;</span>
+ 	   <img class="modal-content" id="img01">
+	    <div id="caption"></div>
+	  </div>
+
+	  <img id="myImg3" src="catDora.jpg" alt="Name: Dora (Girl) <br> Age: 2 years old <br> Type: British Shorthair <br> I am so cool !" title="cat-Dora" onclick = "myFunction3()"><br><br>
+	  <div id="myModal" class="modal">
+ 	   <span class="close">&times;</span>
+ 	   <img class="modal-content" id="img01">
+	    <div id="caption"></div>
+	  </div>
+
+	  <img id="myImg4" src="catMay.jpg" alt="Name: May (Girl) <br> Age: 1.5 years old <br> Type: Ragdoll <br> I am so pretty !" title="cat-May" onclick = "myFunction4()">
+	  <div id="myModal" class="modal">
+ 	   <span class="close">&times;</span>
+ 	   <img class="modal-content" id="img01">
+	    <div id="caption"></div>
+	  </div>
+
+	  <img id="myImg5" src="catNeon.jpg" alt="Name: Neon (Boy) <br> Age: 4 years old <br> Type: British Shorthair <br> I am so cute !" title="cat-Neon" onclick = "myFunction5()">
+	  <div id="myModal" class="modal">
+ 	   <span class="close">&times;</span>
+ 	   <img class="modal-content" id="img01">
+	    <div id="caption"></div>
+	  </div>
+
+	  <img id="myImg6" src="catPayPay.jpg" alt="Name: PayPay (Boy) <br> Age: 3 years old <br> Type: Siamese <br> I seem to be angry but I am so generous !" title="cat-PayPay" onclick = "myFunction6()">
+	  <div id="myModal" class="modal">
+ 	   <span class="close">&times;</span>
+ 	   <img class="modal-content" id="img01">
+	    <div id="caption"></div>
+	  </div>
+
+        </div>
+
+        <div id="dogs" class="container tab-pane fade"><br>
+          <h3>Our Dogs</h3><br>
+	  <p>* Click the photos to see the detailed information for each dog</p><br>
+	  <img id="myImg7" src="dogAnka.jpg" alt="Name: Anka (Boy) <br> Age: 4 years old <br> Type: Poodle <br> I am very fierce !" title="dog-Anka" onclick = "myFunction7()">
+	  <div id="myModal2" class="modal2">
+ 	   <span class="close2">&times;</span>
+ 	   <img class="modal-content2" id="img02">
+	    <div id="caption2"></div>
+	  </div>
+
+	  <img id="myImg8" src="dogBobo.jpg" alt="Name: Bobo (Girl) <br> Age: 4 years old <br> Type: Shiba Inu <br> I am very very cute !" title="dog-Bobo" onclick = "myFunction8()">
+	  <div id="myModal2" class="modal2">
+ 	   <span class="close2">&times;</span>
+ 	   <img class="modal-content2" id="img02">
+	    <div id="caption2"></div>
+	  </div>
+
+	  <img id="myImg9" src="dogKiki.jpg" alt="Name: Kiki (Girl) <br> Age: 1 years old <br> Type: Pomeranian <br> My hair is really really soft !" title="dog-Kiki" onclick = "myFunction9()"><br><br>
+	  <div id="myModal2" class="modal2">
+ 	   <span class="close2">&times;</span>
+ 	   <img class="modal-content2" id="img02">
+	    <div id="caption2"></div>
+	  </div>
+
+	  <img id="myImg10" src="dogKiwi.jpg" alt="Name: Kiwi (Girl) <br> Age: 4 years old <br> Type: Corgi <br> I am a little bit 'stupid' !" title="dog-Kiwi" onclick = "myFunction10()">
+	  <div id="myModal2" class="modal2">
+ 	   <span class="close2">&times;</span>
+ 	   <img class="modal-content2" id="img02">
+	    <div id="caption2"></div>
+	  </div>
+
+	  <img id="myImg11" src="dogKen.jpg" alt="Name: Ken (Boy) <br> Age: 3 years old <br> Type: Chinese native dog <br> I am very royal !" title="dog-Ken" onclick = "myFunction11()">
+	  <div id="myModal2" class="modal2">
+ 	   <span class="close2">&times;</span>
+ 	   <img class="modal-content2" id="img02">
+	    <div id="caption2"></div>
+	  </div>
+
+	  <img id="myImg12" src="dogLily.jpg" alt="Name: Lily (Girl) <br> Age: 5 years old <br> Type: Poodle <br> I am outgoing !" title="dog-Lily" onclick = "myFunction12()">
+	  <div id="myModal2" class="modal2">
+ 	   <span class="close2">&times;</span>
+ 	   <img class="modal-content2" id="img02">
+	    <div id="caption2"></div>
+	  </div>
+        </div>
+
+        <div id="petsupplies" class="container tab-pane fade"><br>
+          <h3>Our Pet Supplies</h3><br>
+
+	  <div class="PhotoG">
+            <div class="photoInG">
+	      <a href="yellowleash.jpg" target = "_blank"><img src="yellowleash.jpg" alt="Dog leash (Yellow)" title="Dog leash (Yellow)"></a>
+	      <div class="desc">Dog leash (Yellow) <br> <b>HK$300</b></div>
+            </div> 
+
+            <div class="photoInG">
+	      <a href="whiteleash.jpg" target = "_blank"><img src="whiteleash.jpg" alt="Dog leash (White)" title="Dog leash (White)"></a>
+	      <div class="desc">Dog leash (White) <br> <b>HK$200</b></div>
+            </div> 
+
+            <div class="photoInG">
+	      <a href="colorleash.jpg" target = "_blank"><img src="colorleash.jpg" alt="Dog leash (Color)" title="Dog leash (Color)"></a>
+	      <div class="desc">Dog leash (Color) <br> <b>HK$400</b></div>
+            </div> 
+
+            <div class="photoInG">
+	      <a href="blackleash.jpg" target = "_blank"><img src="blackleash.jpg" alt="Dog leash (Black)" title="Dog leash (Black)"></a>
+	      <div class="desc">Dog leash (Black) <br> <b>HK$260</b></div>
+            </div> 
+
+            <div class="photoInG">
+	      <a href="brownleash.jpg" target = "_blank"><img src="brownleash.jpg" alt="Dog leash (Brown)" title="Dog leash (Brown)"></a>
+	      <div class="desc">Dog leash (Brown) <br> <b>HK$340</b></div>
+            </div> 
+
+            <div class="photoInG">
+	      <a href="orangeleash.jpg" target = "_blank"><img src="orangeleash.jpg" alt="Dog leash (Orange)" title="Dog leash (Orange)"></a>
+	      <div class="desc">Dog leash (Orange) <br> <b>HK$530</b></div>
+            </div> 
+
+            <div class="photoInG">
+	      <a href="whitedogbowl.jpg" target = "_blank"><img src="whitedogbowl.jpg" alt="Dog Bowl (White)" title="Dog Bowl (White)"></a>
+	      <div class="desc">Dog Bowl (White)<br> <b>HK$330</b></div>
+            </div>
+
+            <div class="photoInG">
+	      <a href="colordogbowl.jpg" target = "_blank"><img src="colordogbowl.jpg" alt="Dog Bowl (Color)" title="Dog Bowl (Color)"></a>
+	      <div class="desc">Dog Bowl (Color)<br> <b>HK$210/set</b></div>
+            </div>
+
+            <div class="photoInG">
+	      <a href="dogball.jpg" target = "_blank"><img src="dogball.jpg" alt="Dog Toy (Ball)" title="Dog Toy (Ball)"></a>
+	      <div class="desc">Dog Toy (Ball)<br> <b>HK$40</b></div>
+            </div>
+
+            <div class="photoInG">
+	      <a href="doghorse.jpg" target = "_blank"><img src="doghorse.jpg" alt="Dog Toy (Plastic Horse)" title="Dog Toy (Plastic Horse)"></a>
+	      <div class="desc">Dog Toy (Horse)<br> <b>HK$180</b></div>
+            </div>
+
+            <div class="photoInG">
+	      <a href="dogdoll.jpg" target = "_blank"><img src="dogdoll.jpg" alt="Dog Toy (Soft Doll)" title="Dog Toy (Soft Doll)"></a>
+	      <div class="desc">Dog Toy (Soft Cartoon Doll)<br> <b>HK$48</b></div>
+            </div>
+
+	    <div class="photoInG">
+	      <a href="dogfrisbee.jpg" target = "_blank"><img src="dogfrisbee.jpg" alt="Dog Toy (Plastic Frisbee)" title="Dog Toy (Plastic Frisbee)"></a>
+	      <div class="desc">Dog Toy (Plastic Frisbee) (Blue Color)<br> <b>HK$48</b></div>
+            </div>
+
+	    <div class="photoInG">
+	      <a href="cattoilet.jpg" target = "_blank"><img src="cattoilet.jpg" alt="Cat Litter Box (With Cover)" title="Cat Litter Box (With Cover)"></a>
+	      <div class="desc">Cat Litter Box (With Cover)<br> <b>HK$200</b></div>
+            </div>
+
+	    <div class="photoInG">
+	      <a href="cattoilet2.jpg" target = "_blank"><img src="cattoilet2.jpg" alt="Cat Litter Box (Without Cover)" title="Cat Litter Box (Without Cover)"></a>
+	      <div class="desc">Cat Litter Box (Without Cover)<br> <b>HK$450</b></div>
+            </div>
+
+	    <div class="photoInG">
+	      <a href="cattoilet3.jpg" target = "_blank"><img src="cattoilet3.jpg" alt="Cat Litter Box (Circle)" title="Cat Litter Box (Circle)"></a>
+	      <div class="desc">Cat Litter Box (Circle)<br> <b>HK$670</b></div>
+            </div>
+
+	    <div class="photoInG">
+	      <a href="cattoy.jpg" target = "_blank"><img src="cattoy.jpg" alt="Cat Scratcher (Shape in ∞)" title="Cat Scratcher (Shape in ∞)"></a>
+	      <div class="desc">Cat Scratcher (Shape in ∞)<br> <b>HK$350</b></div>
+            </div>
+
+	    <div class="photoInG">
+	      <a href="cattoy2.jpg" target = "_blank"><img src="cattoy2.jpg" alt="Cat Scratcher (65x25x9cm)" title="Cat Scratcher (65x25x9cm)"></a>
+	      <div class="desc">Cat Scratcher (65x25x9cm)<br> <b>HK$200</b></div>
+            </div>
+
+	    <div class="photoInG">
+	      <a href="cattoy3.jpg" target = "_blank"><img src="cattoy3.jpg" alt="Funny Cat Wood Stick" title="Funny Cat Wood Stick"></a>
+	      <div class="desc">Funny Cat Wood Stick<br> <b>HK$35</b></div>
+            </div>
+	  </div>
+        </div>
+
+        <div id="procedures" class="container tab-pane fade"><br>
+          <h3>Adoption & Purchase Procedures</h3><br>
+
+	  <table>
+	    <tr>
+	      <th>Adoption Procedures</th>
+	      <th>Purchase Procedures</th>
+	    </tr>
+	    <tr>
+	      <td>1. Click "Our Pets" to see the detailed pets' information.</td>
+ 	      <td>1. Click "Our Supplies" to see the products gallery and corresponding prices.</td>
+	    </tr>
+	    <tr>
+	      <td>2. After deciding which pet you want to adopt, click the "Start Adoption" button in the right-bottom corner.</td>
+	      <td>2. After deciding what products you want to buy, click the "Start Purchase" button in the right-bottom corner. </td>
+	    </tr>
+	    <tr>
+ 	     <td>3. You will be directed to the Adoption Form. Please fill in the information.</td>
+ 	     <td>3. You will be directed to the Purchase Form. Please fill in the information.</td>
+	    </tr>
+	    <tr>
+ 	     <td>4. After the submission, we will review your Form and <br> conduct a home survey based on the address you entered. <br>So please ensure the accuracy of the information in the Form.</td>
+   	     <td>4. After the submission, we will contact you by phone and email if the ordered products are ready. </td>
+	    </tr>
+	    <tr>
+ 	     <td>5. We will send the pet to you by hand if your application succeed.</td>
+	      <td>5. The products will be sent to your delivery address and please make the cash paymnent in this step.</td>
+	    </tr>
+	  </table>
+	    
+	  
+        </div>  
+
+        <div id="contactus" class="container tab-pane fade"><br>
+          <h3>Contact US</h3><br>
+	  <p>If you have any questions, feel free to contact us through</p>
+          <p>Tel: 2848 7584</p>
+	  <p>Email: dhntpet@gmail.com</p>
+        </div>   
+      </div>
+    </div> <br>
+
+
+<div class="jumbotron text-center" style="margin-bottom:0" id="footer">
+  <p>Copyright © 2021 &nbsp DHNT Pets Online Station &nbsp All rights reserved.</p>
+  <a href="http://localhost/AdoptPage.php" target="_blank"><div class="fixed">
+    <b>Start<br>Adoption</b>
+  </div></a>
+
+  <a href="http://localhost/PurchasePage.php" target="_blank"><div class="fixed2">
+    <b>Start<br>Purchase</b>
+  </div></a>
+</div>
+
+
+</body>
+</html>
