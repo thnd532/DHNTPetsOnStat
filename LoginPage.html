@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>DHNT Pets Station Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="function.js"></script>
+
+  <style>
+
+    body{
+      background-image: url();
+    }
+
+    jumbotron{ 
+      color:black;
+    }
+
+    #cover{
+      background: url("coverbg.jpg") no-repeat center fixed;
+      background-size: cover; 
+    }
+
+    div.transbox {
+      font: bold 25px Georgia, "Times New Roman", serif;
+      margin: 30px;
+      background-color: #ffffff;
+      border: 1px solid black;
+      opacity: 0.6;
+    }
+
+    div.transbox h1, div.transbox h2{
+
+      margin: 5%;
+      font-weight:bold;
+      color: #000000;
+    }
+
+    #footer {
+      background-color: #4d4d4d;
+      color: white;
+    }
+    
+    #Navbar{
+      font-size: 17px;
+    }
+
+    #date{
+      position: absolute;
+      top: 12px;
+      left: 16px;
+      font-size: 18px;
+    }
+
+    .MyLogo img{
+      position: absolute;
+      top: 8px;
+      right: 20px;
+      width: 55px;
+      length: 50px;
+      border-radius: 50%;
+    }
+
+    hr{
+      height:15px;
+      border-width:0;
+      color:gray;
+      background-image:url("hr.jpg");
+    }
+
+    form {
+      text-align: center;
+    }
+
+    input[type="text"], input[type="email"], input[type="tel"], input[type="password"] {
+      width: 40%;
+      padding: 10px 10px;
+      margin: auto;
+      box-sizing: border-box;
+    }
+   
+    textarea {
+      width: 40%;
+      height: 150px;
+      padding: 12px 20px;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      background-color: #f8f8f8;
+      font-size: 16px;
+      resize: none;
+    }
+
+  </style>
+
+</head>
+<body>
+
+<div class="jumbotron text-center" id="cover" style="margin-bottom:0">
+  <div class="transbox">
+    <h1>DHNT Pets Station</h1>
+    <h2>Pets Adoption & Pet Supplies Store</h2>
+    <h2>Login Page</h2>
+  </div>
+    <button class="btn btn-dark" id="date" disabled></button>
+    <div class="MyLogo"><img src="logo.jpg" alt="My Logo"></div>
+</div>
+<br>
+
+<br><h4 style="text-align: center;">Login to explore more handy functions!</h4><br>
+
+<form method="post" id="login" action="MemberPage.html" onsubmit="myFunction()">  
+
+  <input type="text" name="username" id="username" placeholder="Enter Username" required>
+  <br><br>
+
+  <input type="password" id="password" name="password" placeholder="Enter Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+  title="Must contain at least one number, one uppercase and lowercase letter. At least 8 or more characters." required>
+  <br><input type="checkbox" onclick="showpsw()"> Show Password
+  <br><br>
+
+
+  <input type="submit" class="btn btn-primary" name="submit" value="Submit" >  
+  <input type="reset" class="btn btn-primary" name="reset" value=" Reset "> 
+  <a href="Final_project.html" class="btn btn-primary" role="button">Cancel</a>
+
+</form>
+<br><br>
+
+<script>
+function myFunction() {
+  var i = document.getElementById("username").value;
+  localStorage.setItem("username", document.getElementById("username").value);
+  localStorage.setItem("password", document.getElementById("password").value);
+  alert("Welcome " + i + ". You are successfully in!");
+}
+
+document.getElementById("date").innerHTML = new Date();
+</script>
+  
+<div class="jumbotron text-center" style="margin-bottom:0" id="footer">
+  <p>Copyright © 2021 &nbsp DHNT Pets Online Station &nbsp All rights reserved.</p>
+</div>
+
+</body>
+</html>
