@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>DHNT Pets Station---Purchase</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="function.js"></script>
+
+  <style>
+    body{
+      background-image: url();
+    }
+
+    jumbotron{ 
+      color:black;
+    }
+
+    #cover{
+      background: url("coverbg.jpg") no-repeat center fixed;
+      background-size: cover; 
+    }
+
+    div.transbox {
+      font: bold 25px Georgia, "Times New Roman", serif;
+      margin: 30px;
+      background-color: #ffffff;
+      border: 1px solid black;
+      opacity: 0.6;
+    }
+
+    div.transbox h1, div.transbox h2{
+
+      margin: 5%;
+      font-weight:bold;
+      color: #000000;
+    }
+
+    #footer {
+      background-color: #4d4d4d;
+      color: white;
+    }
+    
+    #logout{
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      font-size: 18px;
+    }
+
+    #date{
+      position: absolute;
+      top: 12px;
+      left: 16px;
+      font-size: 18px;
+    }
+
+    .MyIcon img{
+      position: absolute;
+      top: 8px;
+      right: 120px;
+      width: 55px;
+      length: 50px;
+      border-radius: 50%;
+    }
+
+    hr{
+      height:15px;
+      border-width:0;
+      color:gray;
+      background-image:url("hr.jpg");
+    }
+
+    div.fixed {
+      position: fixed;
+      bottom: 10px;
+      right: 0;
+      width: 90px;
+      height: 75px;
+      border: 2px solid black;
+      background-color: #f0f0f5;
+      padding: 8px;
+    }
+   
+    form {
+      text-align: center;
+    }
+
+    input[type="text"], input[type="email"], input[type="tel"] {
+      width: 40%;
+      padding: 10px 10px;
+      margin: auto;
+      box-sizing: border-box;
+    }
+   
+    input[type="number"]{
+      width: 10.5%;
+    }
+
+    textarea {
+      width: 40%;
+      height: 150px;
+      padding: 12px 20px;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      background-color: #f8f8f8;
+      font-size: 16px;
+      resize: none;
+    }
+
+    span.show {
+      display: inline-block;
+      border: 1px solid black;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="jumbotron text-center" id="cover" style="margin-bottom:0">
+  <div class="transbox">
+    <h1>DHNT Pets Station</h1>
+    <h2>Pets Adoption & Pet Supplies Store</h2>
+    <h2>Purchase Form</h2>
+  </div>
+    <button class="btn btn-dark" id="date" disabled></button>
+    <a href="index.html" class="btn btn-dark" id="logout" role="button">Logout</a>
+    <div class="MyIcon"><img src="icon.png" id="micon" alt="My Icon" title="My Account"></div>
+</div>
+
+<script>
+  document.getElementById("micon").src = localStorage.getItem("iconname");
+</script>
+
+<br><h4 style="text-align: center;">Please fill in the information.</h4><br>
+
+<form id="purchase" method="post" action="MemberPage.html" onsubmit="success()">  
+
+  <input type="text" name="gender" id="gender" placeholder="Your Gender: F / M" pattern="[fFmM]" required>
+
+  <br><br>
+  <input type="text" name="name" id="name" placeholder="Your Name: " pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" required>
+
+  <br><br>
+  
+  <input type="tel" id="phone" name="phone" id="phone" placeholder="Your Phone: xxxxxxxx" pattern="[0-9]{4}[0-9]{4}" required>
+
+  <br><br>
+  
+  <input type="email" name="email" id="email" placeholder="Your Email:" required>
+
+  <br><br>
+  <input type="text" name="address" id="address" placeholder="Delivery Address:" required>
+
+  <br><br><br>
+  
+  <h5>Choose the products and select the amount: </h5><br>
+  <input type="checkbox" id="Dog leash (Yellow)" name="choice1" value="Dog leash (Yellow)" onclick="enable()">
+  <label for="Dog leash (Yellow)"> Dog leash (Yellow) HK$300 </label>
+  &nbsp <input type="number" id="yellowleashq" name="quantity1" min="0" max="10" placeholder="Quantity (0-10)" disabled><br>
+  
+  <input type="checkbox" id="Dog leash (White)" name="choice2" value="Dog leash (White)" onclick="enable()">
+  <label for="Dog leash (White)"> Dog leash (White) HK$200</label>
+  &nbsp <input type="number" id="whiteleashq" name="quantity2" min="0" max="10" placeholder="Quantity (0-10)" disabled><br>
+    
+  <input type="checkbox" id="Dog leash (Color)" name="choice3" value="Dog leash (Color)" onclick="enable()">
+  <label for="Dog leash (Color)"> Dog leash (Color) HK$400</label>
+  &nbsp <input type="number" id="colorleashq" name="quantity3" min="0" max="10" placeholder="Quantity (0-10)" disabled><br>
+  
+  <input type="checkbox" id="Dog leash (Black)" name="choice4" value="Dog leash (Black)" onclick="enable()">
+  <label for="Dog leash (Black)"> Dog leash (Black) HK$260</label>
+  &nbsp <input type="number" id="colorleashq" name="quantity4" min="0" max="10" placeholder="Quantity (0-10)" disabled><br>
+  
+  <input type="checkbox" id="Dog leash (Brown)" name="choice5" value="Dog leash (Brown)" onclick="enable()">
+  <label for="Dog leash (Brown)"> Dog leash (Brown) HK$340</label>
+  &nbsp <input type="number" id="brownleashq" name="quantity5" min="0" max="10" placeholder="Quantity (0-10)" disabled ><br>
+  
+  <input type="checkbox" id="Dog leash (Orange)" name="choice6" value="Dog leash (Orange)" onclick="enable()">
+  <label for="Dog leash (Orange)"> Dog leash (Orange) HK$530</label>
+  &nbsp <input type="number" id="orangeleashq" name="quantity6" min="0" max="10" placeholder="Quantity (0-10)" disabled ><br>
+  
+  <input type="checkbox" id="Dog Bowl (White)" name="choice7" value="Dog Bowl (White)" onclick="enable()">
+  <label for="Dog Bowl (White)"> Dog Bowl (White) HK$330</label>
+  &nbsp <input type="number" id="whitebowlq" name="quantity7" min="0" max="10" placeholder="Quantity (0-10)" disabled ><br>
+  
+  <input type="checkbox" id="Dog Bowl (Color)" name="choice8" value="Dog Bowl (Color)" onclick="enable()">
+  <label for="Dog Bowl (Color)"> Dog Bowl (Color) HK$210/set</label>
+  &nbsp <input type="number" id="colorbowlq" name="quantity8" min="0" max="10" placeholder="Quantity (0-10)" disabled ><br>
+  
+  <input type="checkbox" id="Dog Toy (Ball)" name="choice9" value="Dog Toy (Ball)" onclick="enable()">
+  <label for="Dog Toy (Ball)"> Dog Toy (Ball) HK$40</label>
+  &nbsp <input type="number" id="toyballq" name="quantity9" min="0" max="10" placeholder="Quantity (0-10)" disabled><br>
+  
+  <input type="checkbox" id="Dog Toy (Plastic Horse)" name="choice10" value="Dog Toy (Plastic Horse)" onclick="enable()">
+  <label for="Dog Toy (Plastic Horse)"> Dog Toy (Plastic Horse) HK$180</label>
+  &nbsp <input type="number" id="toyhorseq" name="quantity10" min="0" max="10" placeholder="Quantity (0-10)" disabled><br>
+  
+  <input type="checkbox" id="Dog Toy (Soft Cartoon Doll)" name="choice11" value="Dog Toy (Soft Cartoon Doll)" onclick="enable()">
+  <label for="Dog Toy (Soft Cartoon Doll)"> Dog Toy (Soft Cartoon Doll) HK$48</label>
+  &nbsp <input type="number" id="toydollq" name="quantity11" min="0" max="10" placeholder="Quantity (0-10)" disabled><br>
+  
+  <input type="checkbox" id="Dog Toy (Plastic Frisbee) (Blue Color)" name="choice12" value="Dog Toy (Plastic Frisbee) (Blue Color)" onclick="enable()">
+  <label for="Dog Toy (Plastic Frisbee) (Blue Color)"> Dog Toy (Plastic Frisbee) (Blue) HK$48</label>
+  &nbsp <input type="number" id="toyfrisbeeq" name="quantity12" min="0" max="10" placeholder="Quantity (0-10)" disabled><br>
+  
+  <input type="checkbox" id="Cat Litter Box (With Cover)" name="choice13" value="Cat Litter Box (With Cover)" onclick="enable()">
+  <label for="Cat Litter Box (With Cover)"> Cat Litter Box (With Cover) HK$200</label>
+  &nbsp <input type="number" id="litterboxcoverq" name="quantity13" min="0" max="10" placeholder="Quantity (0-10)" disabled><br>
+  
+  <input type="checkbox" id="Cat Litter Box (Without Cover)" name="choice14" value="Cat Litter Box (Without Cover)" onclick="enable()">
+  <label for="Cat Litter Box (Without Cover)"> Cat Litter Box (Without Cover) HK$450</label>
+  &nbsp <input type="number" id="litterboxwithout" name="quantity14" min="0" max="10" placeholder="Quantity (0-10)" disabled><br>
+  
+  <input type="checkbox" id="Cat Litter Box (Circle)" name="choice15" value="Cat Litter Box (Circle)" onclick="enable()">
+  <label for="Cat Litter Box (Circle)"> Cat Litter Box (Circle) HK$670</label>
+  &nbsp <input type="number" id="litterboxcircleq" name="quantity15" min="0" max="10" placeholder="Quantity (0-10)" disabled><br>
+  
+  <input type="checkbox" id="Cat Scratcher (Shape in ∞)" name="choice16" value="Cat Scratcher (Shape in ∞)" onclick="enable()">
+  <label for="Cat Scratcher (Shape in ∞)"> Cat Scratcher (Shape in ∞) HK$350</label>
+  &nbsp <input type="number" id="scratcherq" name="quantity16" min="0" max="10" placeholder="Quantity (0-10)" disabled ><br>
+  
+  <input type="checkbox" id="Cat Scratcher (65x25x9cm)" name="choice17" value="Cat Scratcher (65x25x9cm)" onclick="enable()">
+  <label for="Cat Scratcher (65x25x9cm)"> Cat Scratcher (65x25x9cm) HK$200</label>
+  &nbsp <input type="number" id="scratcher2q" name="quantity17" min="0" max="10" placeholder="Quantity (0-10)" disabled ><br>
+  
+  <input type="checkbox" id="Funny Cat Wood Stick" name="choice18" value="Funny Cat Wood Stick" onclick="enable()">
+  <label for="Funny Cat Wood Stick"> Funny Cat Wood Stick HK$35</label> 
+  &nbsp <input type="number" id="catstickq" name="quantity18" min="0" max="10" placeholder="Quantity (0-10)" disabled ><br>
+  <br>
+  
+<p><b>You have ordered: </b><br><br>
+<span class="show" id="show"></span><br>
+  
+  <br>
+  <input type="submit" class="btn btn-primary" name="submit" value="Submit" >  
+  <input type="reset" class="btn btn-primary" name="reset" value=" Reset ">
+  <a href="MemberPage.html" class="btn btn-primary" role="button">Cancel</a>
+</form>
+
+<script>
+function enable() {
+  summary();
+  var i = 0;
+  for (i = 0;i<20;i++) {
+    if (document.querySelectorAll("input[type=checkbox]")[i].checked == true) {
+      document.querySelectorAll("input[type=number]")[i].disabled = false;
+    } 
+    else {
+      document.querySelectorAll("input[type=number]")[i].disabled = true;
+    }
+  }
+}
+
+function summary() {
+  var x = document.forms["purchase"];
+  var text = "";
+  var y;
+  for (y = 0; y < x.length; y++) {
+    if (x[y].checked) {
+      text += x[y].value + "<br>";
+      }
+  }
+  document.getElementById("show").innerHTML = text;
+}
+
+  document.getElementById("gender").value = localStorage.getItem("gender");
+  document.getElementById("name").value = localStorage.getItem("name");
+  document.getElementById("phone").value = localStorage.getItem("phone");
+  document.getElementById("email").value = localStorage.getItem("email");
+  document.getElementById("address").value = localStorage.getItem("DEaddress");
+
+
+function success() {
+  var x = document.forms["purchase"];
+  var text = "";
+  var v = "";
+  var y;
+  var i;
+  for (y = 0; y < x.length; y++) {
+    if (x[y].checked) {
+      text += x[y].value + "<br>";
+      }
+  }
+  for (i=0;i<18;i++) {
+    if (document.querySelectorAll("input[type=number]")[i].disabled == false) {
+      var a = document.querySelectorAll("input[type=number]")[i].value;
+      v = v + a + "<br>";
+    }
+  }
+
+  localStorage.setItem("purchaseForm", text);
+  localStorage.setItem("amount", v);
+
+
+  var d = new Date();
+  var a = Math.floor(Math.random() * 100)+1;
+  var pun = "P" + d.getFullYear() + (d.getMonth()+1) + d.getDate() + d.getHours() + d.getMinutes() + a ;
+
+  localStorage.setItem("purchaseNo", pun);
+
+  var z=document.getElementById("name").value;
+  alert(z + ", your data has been recorded! Your Purchase Number is: " + pun);
+  alert("We will contact you as soon as possible when the products are ready.  Thank you for your support!");
+}
+
+document.getElementById("date").innerHTML = new Date();
+
+</script>
+<br><br>
+
+<div class="jumbotron text-center" style="margin-bottom:0" id="footer">
+  <p>Copyright © 2021 &nbsp DHNT Pets Online Station &nbsp All rights reserved.</p>
+  <a href="MemberAdoptPage.html" target="_self"><div class="fixed">
+    <b>Start<br>Adoption</b>
+  </div></a>
+</div>
+</body>
+</html>
