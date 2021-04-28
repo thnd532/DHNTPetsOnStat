@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>DHNT Pets Station---Adoption</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="function.js"></script>
+
+  <style>
+
+    body{
+      background-image: url();
+    }
+
+    jumbotron{ 
+      color:black;
+    }
+
+    #cover{
+      background: url("coverbg.jpg") no-repeat center fixed;
+      background-size: cover; 
+    }
+
+    div.transbox {
+      font: bold 25px Georgia, "Times New Roman", serif;
+      margin: 30px;
+      background-color: #ffffff;
+      border: 1px solid black;
+      opacity: 0.6;
+    }
+
+    div.transbox h1, div.transbox h2{
+
+      margin: 5%;
+      font-weight:bold;
+      color: #000000;
+    }
+
+    #footer {
+      background-color: #4d4d4d;
+      color: white;
+    }
+
+    #logout{
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      font-size: 18px;
+    }
+
+    #date{
+      position: absolute;
+      top: 12px;
+      left: 16px;
+      font-size: 18px;
+    }
+
+    .MyIcon img{
+      position: absolute;
+      top: 8px;
+      right: 120px;
+      width: 55px;
+      length: 50px;
+      border-radius: 50%;
+    }
+
+    hr{
+      height:15px;
+      border-width:0;
+      color:gray;
+      background-image:url("hr.jpg");
+    }
+
+
+    div.fixed2 {
+      position: fixed;
+      bottom: 10px;
+      right: 0;
+      width: 90px;
+      height: 75px;
+      border: 2px solid black;
+      background-color: #f0f0f5;
+      padding: 8px;
+    }
+   
+    form {
+      text-align: center;
+    }
+
+    input[type="text"], input[type="email"], input[type="tel"], select {
+      width: 40%;
+      padding: 10px 10px;
+      margin: auto;
+      box-sizing: border-box;
+    }
+   
+    textarea {
+      width: 40%;
+      height: 150px;
+      padding: 12px 20px;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      background-color: #f8f8f8;
+      font-size: 16px;
+      resize: none;
+    }
+  </style>
+
+</head>
+<body>
+
+<div class="jumbotron text-center" id="cover" style="margin-bottom:0">
+  <div class="transbox">
+    <h1>DHNT Pets Station</h1>
+    <h2>Pets Adoption & Pet Supplies Store</h2>
+    <h2>Adoption Form</h2>
+  </div>
+    <button class="btn btn-dark" id="date" disabled></button>
+    <a href="indext.html" class="btn btn-dark" id="logout" role="button">Logout</a>
+    <div class="MyIcon"><img src="icon.png" id="micon" alt="My Icon" title="My Account"></div>
+</div>
+
+<script>
+  document.getElementById("micon").src = localStorage.getItem("iconname");
+  //localStorage.setItem("iconname", document.getElementById("micon").src);
+</script>
+
+<br><h4 style="text-align: center;">Please fill in the information.</h4><br>
+
+<form method="post" id="adopt" action="MemberPage.html" onsubmit="success()">  
+
+  <input type="text" name="gender" id="gender" placeholder="Your Gender: F / M" pattern="[fFmM]" required>
+
+  <br><br>
+  <input type="text" name="name" id="name" placeholder="Your Name: " pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" required>
+
+  <br><br>
+  
+  <input type="tel" id="phone" name="phone" placeholder="Your Phone: xxxxxxxx" pattern="[0-9]{4}[0-9]{4}" required>
+
+  <br><br>
+  
+  <input type="email" name="email" id="email" placeholder="Your Email:" required>
+
+  <br><br>
+  <input type="text" name="address" id="address" placeholder="Adopter's Address:" required>
+
+  <br><br>
+  
+    <select id="choice" name="choice" required>
+    <option value="choose" required>Choose a dog/cat to adopt</option>
+    <option value="catAvan">Cat-Avan (British Shorthair)</option>
+    <option value="catBell">Cat-Bell (British Shorthair)</option>
+    <option value="catDora">Cat-Dora (British Shorthair)</option>
+    <option value="catMay">Cat-May (Ragdoll)</option>
+    <option value="catNeon">Cat-Neon (British Shorthair)</option>
+    <option value="catPayPay">Cat-Paypay (Siamese) </option>
+    <option value="dogAnka">Dog-Anka (Poodle)</option>
+    <option value="dogBobo">Dog-Bobo (Shiba Inu)</option>
+    <option value="dogKiki">Dog-Kiki (Pomeranian)</option>
+    <option value="dogKiwi">Dog-Kiwi (Corgi)</option>
+    <option value="dogKen">Dog-Ken (Chinese Native Dog)</option>
+    <option value="dogLily">Dog-Lily (Poodle)</option>
+  </select><br><br>
+
+  <textarea id="reason" placeholder="Why you want to adopt this dog/cat?" required></textarea>
+
+  <br><br>
+  
+  <input type="submit" class="btn btn-primary" name="submit" value="Submit" >  
+  <input type="reset" class="btn btn-primary" name="reset" value=" Reset ">
+  <a href="MemberPage.html" class="btn btn-primary" role="button">Cancel</a>
+
+</form>
+<br>
+
+<script>
+  document.getElementById("gender").value = localStorage.getItem("gender");
+  document.getElementById("name").value = localStorage.getItem("name");
+  document.getElementById("phone").value = localStorage.getItem("phone");
+  document.getElementById("email").value = localStorage.getItem("email");
+  document.getElementById("address").value = localStorage.getItem("ADaddress");
+
+function success() {
+  localStorage.setItem("adoptForm", document.getElementById("choice").value);
+  localStorage.setItem("reason", document.getElementById("reason").value);
+  
+  var d = new Date();
+  var a = Math.floor(Math.random() * 100)+1;
+  var adn = "A" + d.getFullYear() + (d.getMonth()+1) + d.getDate() + d.getHours() + d.getMinutes() + a ;
+
+  localStorage.setItem("adoptNo", adn);
+
+  var x=document.getElementById("name").value;
+  alert(x + ", your data has been recorded! Your Adoption Number is: " + adn);
+  alert("We will contact you as soon as possible after reviewing your Form. Thank you for your support!");
+}
+
+document.getElementById("date").innerHTML = new Date();
+</script>
+
+<div class="jumbotron text-center" style="margin-bottom:0" id="footer">
+  <p>Copyright © 2021 &nbsp DHNT Pets Online Station &nbsp All rights reserved.</p>
+
+  <a href="MemberPurchasePage.html" target="_self"><div class="fixed2">
+    <b>Start<br>Purchase</b>
+  </div></a>
+</div>
+</body>
+</html>
