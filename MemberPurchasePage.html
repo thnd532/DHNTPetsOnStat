@@ -138,23 +138,23 @@
 
 <br><h4 style="text-align: center;">Please fill in the information.</h4><br>
 
-<form id="purchase" method="post" action="MemberPage.html" onsubmit="success()">  
+<form id="purchase">  
 
-  <input type="text" name="gender" id="gender" placeholder="Your Gender: F / M" pattern="[fFmM]" required>
-
-  <br><br>
-  <input type="text" name="name" id="name" placeholder="Your Name: " pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" required>
+  <input type="text" name="gender" id="gender" placeholder="Your Gender: F / M" pattern="[fFmM]" required onchange="v3()"><span id="error1"></span>
 
   <br><br>
-  
-  <input type="tel" id="phone" name="phone" id="phone" placeholder="Your Phone: xxxxxxxx" pattern="[0-9]{4}[0-9]{4}" required>
+  <input type="text" name="name" id="name" placeholder="Your Name: " pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" required onchange="v3()"><span id="error2"></span>
 
   <br><br>
   
-  <input type="email" name="email" id="email" placeholder="Your Email:" required>
+  <input type="tel" id="phone" name="phone" id="phone" placeholder="Your Phone: xxxxxxxx" pattern="[0-9]{4}[0-9]{4}" required onchange="v3()"><span id="error3"></span>
 
   <br><br>
-  <input type="text" name="address" id="address" placeholder="Delivery Address:" required>
+  
+  <input type="email" name="email" id="email" placeholder="Your Email:" required onchange="v3()"><span id="error4"></span>
+
+  <br><br>
+  <input type="text" name="address" id="address" placeholder="Delivery Address:" required onchange="v3()"><span id="error5"></span>
 
   <br><br><br>
   
@@ -234,13 +234,14 @@
   
 <p><b>You have ordered: </b><br><br>
 <span class="show" id="show"></span><br>
+   
   
   <br>
-  <input type="submit" class="btn btn-primary" name="submit" value="Submit" >  
+  <a href="MemberPage.html"><input type="button" class="btn btn-primary" name="submit" id="submit" value="Submit" onclick="success()"></a>   
   <input type="reset" class="btn btn-primary" name="reset" value=" Reset ">
   <a href="MemberPage.html" class="btn btn-primary" role="button">Cancel</a>
 </form>
-
+  
 <script>
 function enable() {
   summary();
