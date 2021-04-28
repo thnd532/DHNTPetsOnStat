@@ -312,3 +312,70 @@ function v3() {
     document.getElementById("submit").disabled = false;
   }
 } 
+
+function v4() {
+  var inpObj8 = document.getElementById("username");
+  var inpObj9 = document.getElementById("password");
+
+  if (!inpObj8.checkValidity()) {
+    document.getElementById("error8").innerHTML = inpObj8.validationMessage;
+    document.getElementById("submit").disabled = true;
+  }
+  else {
+    document.getElementById("error8").innerHTML = "";
+    document.getElementById("submit").disabled = false;
+  }
+
+  if (!inpObj9.checkValidity()) {
+    document.getElementById("error9").innerHTML = inpObj9.validationMessage;
+    document.getElementById("submit").disabled = true;
+  }
+  else {
+    document.getElementById("error9").innerHTML = "";
+    document.getElementById("submit").disabled = false;
+  }
+}
+
+function v5() {
+  var inpObj1 = document.getElementById("username");
+  var inpObj2 = document.getElementById("password");
+  var inpObj3 = document.getElementById("phone");
+  var inpObj4 = document.getElementById("email");
+
+
+  if (!inpObj1.checkValidity()) {
+    document.getElementById("error1").innerHTML = inpObj1.validationMessage;
+    document.getElementById("submit").disabled = true;
+  } 
+  else {
+    document.getElementById("error1").innerHTML = "";
+    document.getElementById("submit").disabled = false;
+  }
+
+  if (!inpObj2.checkValidity()) {
+    document.getElementById("error2").innerHTML = inpObj2.validationMessage;
+    document.getElementById("submit").disabled = true;
+  }
+  else {
+    document.getElementById("error2").innerHTML = "";
+    document.getElementById("submit").disabled = false;
+  }
+ 
+  if (!inpObj3.checkValidity()) {
+    document.getElementById("error3").innerHTML = inpObj3.validationMessage;
+    document.getElementById("submit").disabled = true;
+  } 
+  else {
+    document.getElementById("error3").innerHTML = "";
+    document.getElementById("submit").disabled = false;
+  }
+
+  if (!inpObj4.checkValidity()) {
+    document.getElementById("error4").innerHTML = inpObj4.validationMessage;
+    document.getElementById("submit").disabled = true;
+  }
+  else {
+    document.getElementById("error4").innerHTML = "";
+    document.getElementById("submit").disabled = false;
+  }
+} 
