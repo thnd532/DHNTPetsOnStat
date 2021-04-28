@@ -197,7 +197,7 @@ document.getElementById("date").innerHTML = new Date();
 <div class="jumbotron text-center" style="margin-bottom:0" id="footer">
   <p>Copyright © 2021 &nbsp DHNT Pets Online Station &nbsp All rights reserved.</p>
 
-  <a href="PurchasePage.html" target="_self"><div class="fixed2">
+  <a href="Index.html" target="_self"><div class="fixed2">
     <b>Start<br>Purchase</b>
   </div></a>
 </div>
