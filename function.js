@@ -248,3 +248,67 @@ function showpsw() {
     x.type = "password";
   }
 }
+
+
+function v3() {
+  var inpObj1 = document.getElementById("gender");
+  var inpObj2 = document.getElementById("name");
+  var inpObj3 = document.getElementById("phone");
+  var inpObj4 = document.getElementById("email");
+  var inpObj5 = document.getElementById("address");
+  var inpObj6 = document.getElementById("reason");
+
+  if (!inpObj1.checkValidity()) {
+    document.getElementById("error1").innerHTML = inpObj1.validationMessage;
+    document.getElementById("submit").disabled = true;
+  } 
+  else {
+    document.getElementById("error1").innerHTML = "";
+    document.getElementById("submit").disabled = false;
+  }
+
+  if (!inpObj2.checkValidity()) {
+    document.getElementById("error2").innerHTML = inpObj2.validationMessage;
+    document.getElementById("submit").disabled = true;
+  }
+  else {
+    document.getElementById("error2").innerHTML = "";
+    document.getElementById("submit").disabled = false;
+  }
+ 
+  if (!inpObj3.checkValidity()) {
+    document.getElementById("error3").innerHTML = inpObj3.validationMessage;
+    document.getElementById("submit").disabled = true;
+  } 
+  else {
+    document.getElementById("error3").innerHTML = "";
+    document.getElementById("submit").disabled = false;
+  }
+
+  if (!inpObj4.checkValidity()) {
+    document.getElementById("error4").innerHTML = inpObj4.validationMessage;
+    document.getElementById("submit").disabled = true;
+  }
+  else {
+    document.getElementById("error4").innerHTML = "";
+    document.getElementById("submit").disabled = false;
+  }
+
+    if (!inpObj5.checkValidity()) {
+    document.getElementById("error5").innerHTML = inpObj5.validationMessage;
+    document.getElementById("submit").disabled = true;
+  }
+  else {
+    document.getElementById("error5").innerHTML = "";
+    document.getElementById("submit").disabled = false;
+  }
+
+  if (!inpObj6.checkValidity()) {
+    document.getElementById("error6").innerHTML = inpObj6.validationMessage;
+    document.getElementById("submit").disabled = true;
+  }
+  else {
+    document.getElementById("error6").innerHTML = "";
+    document.getElementById("submit").disabled = false;
+  }
+} 
