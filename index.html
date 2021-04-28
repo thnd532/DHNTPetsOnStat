@@ -49,14 +49,35 @@
       font-size: 17px;
     }
 
+    #date{
+      position: absolute;
+      top: 12px;
+      left: 16px;
+      font-size: 18px;
+    }
+
+    #reg{
+      position: absolute;
+      top: 8px;
+      right: 16px;
+      font-size: 18px;
+    }
+
+    #signin{
+      position: absolute;
+      top: 8px;
+      right: 120px;
+      font-size: 18px;
+    }
+
     .MyLogo img{
       position: absolute;
       top: 8px;
-      right: 33px;
+      right: 210px;
       width: 55px;
       length: 50px;
       border-radius: 50%;
-    }
+    }	
     
     .tab-content p {
       font-size: 18px;
@@ -203,11 +224,10 @@
       text-align: center;
       background-color: #f0f0f5;
     }
-   
   </style>
+
 </head>
 <body>
-
 
 <div class="jumbotron text-center" id="cover" style="margin-bottom:0">
   <div class="transbox">
@@ -215,8 +235,15 @@
     <h2>Pets Adoption & Pet Supplies Store</h2>
     <h2>Here, You can find what you want !</h2>
   </div>
+    <button class="btn btn-dark" id="date" disabled></button>
+    <a href="LoginPage.html" class="btn btn-dark" id="signin" role="button">Login</a>
+    <a href="RegisterPage.html" class="btn btn-dark" id="reg" role="button">Register</a>
     <div class="MyLogo"><img src="logo.jpg" alt="My Logo"></div>
 </div>
+
+<script>
+  document.getElementById("date").innerHTML = new Date();
+</script>
 
 <div class="container">
   <ul class="nav nav-tabs justify-content-center" role="tablist">
@@ -241,7 +268,6 @@
     </li> 
   </ul>
  
-
   <div class="tab-content">
         <div id="aboutus" class="container tab-pane active"><br>
           <h3>About US</h3><br>
@@ -264,8 +290,8 @@
         </div>      	
 
         <div id="cats" class="container tab-pane fade"><br>
-          <h3>Our Cats</h3><br>
-	  <p>* Click the photos to see the detailed information for each cat</p><br>
+          <h3 id="cat">Our Cats</h3><br>
+	  <p>* Click the photos to see the captions under each cat!</p><br>
 	  <img id="myImg1" src="catAvan.jpg" alt="Name: Avan (Boy) <br> Age: 3 years old <br> Type: British Shorthair <br> I am so nice !" title="cat-Avan" onclick = "myFunction1()">
 	  <div id="myModal" class="modal">
  	   <span class="close">&times;</span>
@@ -312,7 +338,7 @@
 
         <div id="dogs" class="container tab-pane fade"><br>
           <h3>Our Dogs</h3><br>
-	  <p>* Click the photos to see the detailed information for each dog</p><br>
+	  <p>* Click the photos to see the captions under each dog!</p><br>
 	  <img id="myImg7" src="dogAnka.jpg" alt="Name: Anka (Boy) <br> Age: 4 years old <br> Type: Poodle <br> I am very fierce !" title="dog-Anka" onclick = "myFunction7()">
 	  <div id="myModal2" class="modal2">
  	   <span class="close2">&times;</span>
@@ -481,31 +507,28 @@
 	      <td>5. The products will be sent to your delivery address and please make the cash paymnent in this step.</td>
 	    </tr>
 	  </table>
-	    
-	  
         </div>  
 
         <div id="contactus" class="container tab-pane fade"><br>
           <h3>Contact US</h3><br>
-	  <p>If you have any questions, feel free to contact us through</p>
+	  <p>If you have any questions, feel free to contact us through: </p>
           <p>Tel: 2848 7584</p>
-	  <p>Email: dhntpet@gmail.com</p>
+	  <p>Email: dhntpet@gmail.com</a></p>
         </div>   
+
       </div>
     </div> <br>
 
-
 <div class="jumbotron text-center" style="margin-bottom:0" id="footer">
   <p>Copyright © 2021 &nbsp DHNT Pets Online Station &nbsp All rights reserved.</p>
-  <a href="AdoptPage.php" target="_blank"><div class="fixed">
+  <a href="AdoptPage.html" target="_self"><div class="fixed">
     <b>Start<br>Adoption</b>
   </div></a>
 
-  <a href="http://localhost/PurchasePage.php" target="_blank"><div class="fixed2">
+  <a href="PurchasePage.html" target="_self"><div class="fixed2">
     <b>Start<br>Purchase</b>
   </div></a>
 </div>
-
 
 </body>
 </html>
