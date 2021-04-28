@@ -135,27 +135,27 @@
 
 <br><h4 style="text-align: center;">Please fill in the information.</h4><br>
 
-<form id="adopt" action="https://thnd532.github.io/DHNTPetsOnStat/" onsubmit="success()">  
+<form>
 
-  <input type="text" name="gender" id="gender" placeholder="Your Gender: F / M" pattern="[fFmM]" required>
-
-  <br><br>
-  <input type="text" name="name" id="name" placeholder="Your Name: (Only allow letters and white-space)" pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" required>
+  <input type="text" name="gender" id="gender" placeholder="Your Gender: F / M" pattern="[fFmM]" required onchange="v3()"><span id="error1"></span>
 
   <br><br>
-  
-  <input type="tel" id="phone" name="phone" placeholder="Your Phone: xxxxxxxx" pattern="[0-9]{4}[0-9]{4}" required>
+  <input type="text" name="name" id="name" placeholder="Your Name: (Only allow letters and white-space)" pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" required onchange="v3()"><span id="error2"></span>
 
   <br><br>
   
-  <input type="email" name="email" id="email" placeholder="Your Email:" required>
-
-  <br><br>
-  <input type="text" name="address" id="address" placeholder="Adopter's Address:" required>
+  <input type="tel" id="phone" name="phone" placeholder="Your Phone: xxxxxxxx" pattern="[0-9]{4}[0-9]{4}" required onchange="v3()"><span id="error3"></span>
 
   <br><br>
   
-    <select id="choice" name="choice" required>
+  <input type="email" name="email" id="email" placeholder="Your Email:" required onchange="v3()"><span id="error4"></span>
+
+  <br><br>
+  <input type="text" name="address" id="address" placeholder="Adopter's Address:" required onchange="v3()"><span id="error5"></span>
+
+  <br><br>
+  
+    <select id="choice" name="choice" required onchange="v3()">
     <option value="choose" disabled selected>Choose a dog/cat to adopt:</option>
     <option value="catAvan" required>Cat-Avan (British Shorthair)</option>
     <option value="catBell" required>Cat-Bell (British Shorthair)</option>
@@ -171,13 +171,13 @@
     <option value="dogLily" required>Dog-Lily (Poodle)</option>
   </select><br><br>
 
-  <textarea placeholder="Why you want to adopt this dog/cat?" required></textarea>
+  <textarea id="reason" placeholder="Why you want to adopt this dog/cat?" required onchange="v3()"></textarea><span id="error6"></span>
 
   <br><br>
   
-  <input type="submit" class="btn btn-primary" name="submit" value="Submit" >  
+  <a href="https://thnd532.github.io/DHNTPetsOnStat/"><input type="button" class="btn btn-primary" name="submit" id="submit" value="Submit" onclick="success()" ></a> 
   <input type="reset" class="btn btn-primary" name="reset" value=" Reset ">
-  <a href="index.html" class="btn btn-primary" role="button">Cancel</a>
+  <a href="Final_project.html" class="btn btn-primary" role="button">Cancel</a>
 
 </form>
 <br>
