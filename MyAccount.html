@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>DHNT PetsStation My Account</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="function.js"></script>
+
+  <style>
+    body{
+      background-image: url();
+    }
+
+    jumbotron{ 
+      color:black;
+    }
+
+    #cover{
+      background: url("coverbg.jpg") no-repeat center fixed;
+      background-size: cover; 
+    }
+
+    div.transbox {
+      font: bold 25px Georgia, "Times New Roman", serif;
+      margin: 20px;
+      background-color: #ffffff;
+      border: 1px solid black;
+      opacity: 0.6;
+    }
+
+    div.transbox h1, div.transbox h2{
+      margin: 3%;
+      font-weight:bold;
+      color: #000000;
+    }
+
+    #footer {
+      background-color: #4d4d4d;
+      color: white;
+    }
+    
+    #Navbar{
+      font-size: 17px;
+    }
+
+    #logout{
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      font-size: 18px;
+    }
+
+    #date{
+      position: absolute;
+      top: 12px;
+      left: 16px;
+      font-size: 18px;
+    }
+
+    .MyIcon img{
+      position: absolute;
+      top: 8px;
+      right: 120px;
+      width: 55px;
+      length: 50px;
+      border-radius: 50%;
+    }	
+        
+    .tab-content p {
+      font-size: 18px;
+    }
+
+    #aboutus ul{
+       list-style-image: url('bullet.jpg');
+    }
+
+    hr{
+      height:15px;
+      border-width:0;
+      color:gray;
+      background-image:url("hr.jpg");
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td, th {
+      border: 2px solid black;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+    div.fixed {
+      position: fixed;
+      bottom: 10px;
+      right: 5px;
+      width: 80px;
+      height: 50px;
+      border: 2px solid #3377ff;
+      background-color: #3377ff;
+      color: white;
+      padding: 6px;
+      font-size: 22px;
+      border-radius: 20%;
+    }
+
+    input[type="text"], input[type="email"], input[type="tel"], input[type="password"]{
+      width: 40%;
+      padding: 10px 10px;
+      margin: auto;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+
+<div class="jumbotron text-center" id="cover" style="margin-bottom:0">
+  <div class="transbox">
+    <h1>DHNT Pets Station</h1>
+    <h2>Pets Adoption & Pet Supplies Store</h2>
+    <h2>My Account</h2>
+  </div>
+    <button class="btn btn-dark" id="date" disabled></button>
+    <a href="index.html" class="btn btn-dark" id="logout" role="button">Logout</a>
+    <div class="MyIcon"><img id="photo1" alt="My Icon"></div>
+</div>
+
+<div class="container" style="margin-top:30px">
+  <div class="row">
+
+    <div class="col-sm-4">
+      <ul class="nav nav-tabs nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="#personalinfo">Personal Info</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#logininfo">Login Info</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#records">Latest Adoption/Purchase Records</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#background">Background</a>
+        </li>
+      </ul>
+      <hr class="d-sm-none">
+    </div>
+
+    <div class="col-sm-8">
+      <div class="tab-content">
+
+        <div id="personalinfo" class="container tab-pane active"><br>
+          <h3>Personal Info</h3><br>
+	  <img id="photo2" title="Please upload a photo be your Icon." alt=" Please upload a photo be your Icon.""><br><br>
+	  <input type="file" id="myFile" size="50" onchange="pho()"><br><br>
+	  <p>* All required</p>
+
+          <input type="text" name="gender" id="gender" placeholder="Your Gender: F / M" pattern="[fFmM]" required onchange="v()"> <span id="error1"></span>
+	  <br><br>
+	  <input type="text" name="name" id="name" placeholder="Your Name: " pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" required onchange="v()"> <span id="error2"></span>
+	  <br><br>
+	  <input type="tel" id="phone" id="phone" name="phone" placeholder="Your Phone: xxxxxxxx" pattern="[0-9]{4}[0-9]{4}" required onchange="v()"> <span id="error3"></span>
+	  <br><br>
+ 	  <input type="email" name="email"id="email" placeholder="Your Email:" required onchange="v()"> <span id="error4"></span>
+	  <br><br>
+	  <input type="text" name="address" id="address" placeholder="Adopter's Address:" required onchange="v()"> <span id="error5"></span>
+     	  <br><br>
+	  <input type="text" name="address2" id="address2" placeholder="Delivery Address:" required onchange="v()"> <span id="error6"></span>
+     	  <br><br>
+	  <input type="button" class="btn btn-primary" id="confirm" name="confirm" value="Confirm" onclick="myFunction()">  
+	  <br><br>
+        </div>
+
+        <div id="logininfo" class="container tab-pane fade"><br>
+          <h3>Login Info</h3><br>
+  	  <input type="text" name="username" id="username" placeholder="Your Username: " disabled >
+  	  <br><br>
+  	  <input type="password" name="password" id="password" placeholder="Enter Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number, one uppercase and lowercase letter. At least 8 or more characters." required onchange="v2()"> <span id="error8"></span>
+  	  <br><input type="checkbox" onclick="showpsw()"> Show Password
+	  <br><br>
+	  <input type="button" class="btn btn-primary" id="confirm2" name="confirm2" value="Confirm" onclick="mf()">
+	  <br><br>
+        </div>
+
+        <div id="background" class="container tab-pane fade"><br>
+          <h3>Background</h3>
+	  <p>You can change the background by selecting a button below: </p><br>
+	  <input type="button" id="bg1" class="btn btn-primary" value="Background 1" onclick="bg1()">
+	  <input type="button" id="bg2" class="btn btn-primary" value="Background 2" onclick="bg2()">
+	  <input type="button" id="bg3" class="btn btn-primary" value="Background 3" onclick="bg3()"><br><br>
+	  <input type="button" id="bg4" class="btn btn-primary" value="Background 4" onclick="bg4()">
+	  <input type="button" id="bg5" class="btn btn-primary" value="Background 5" onclick="bg5()">
+	  <input type="button" id="bg6" class="btn btn-primary" value="Background 6" onclick="bg6()"><br><br>
+	  <input type="button" id="white" class="btn btn-primary" value="Default" onclick="bg7()">
+	<br><br>  
+        </div>
+
+        <div id="records" class="container tab-pane fade"><br>
+          <h3>Latest Adoption/Purchase Records</h3><br>
+	  <h5 style="text-decoration: underline;">Adoption</h5>
+	  <p id="aRecord"></p><br>
+	  <h5 style="text-decoration: underline;">Purchase</h5>
+	  <p id="pRecord"></p>
+        </div>
+     </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+$(document).ready(function(){
+  $(".nav-tabs a").click(function(){
+    $(this).tab('show');
+  });
+});
+
+function myFunction() {
+
+  var r = confirm("Confirm change(s)?");
+  if (r == true) {
+    sessionStorage.setItem("gender", document.getElementById("gender").value);
+    localStorage.setItem("gender", document.getElementById("gender").value);
+    sessionStorage.setItem("name", document.getElementById("name").value);
+    localStorage.setItem("name", document.getElementById("name").value);
+    localStorage.setItem("phone", document.getElementById("phone").value);
+    localStorage.setItem("email", document.getElementById("email").value);
+    sessionStorage.setItem("ADaddress", document.getElementById("address").value);
+    sessionStorage.setItem("DEaddress", document.getElementById("address2").value);
+    localStorage.setItem("ADaddress", document.getElementById("address").value);
+    localStorage.setItem("DEaddress", document.getElementById("address2").value);
+  }
+}
+
+document.getElementById("username").value = localStorage.getItem("username");
+document.getElementById("password").value = localStorage.getItem("password");
+document.getElementById("phone").value = localStorage.getItem("phone");
+document.getElementById("email").value = localStorage.getItem("email");
+
+document.getElementById("photo1").src = localStorage.getItem("iconname");
+document.getElementById("photo2").src=localStorage.getItem("iconname");
+document.getElementById("gender").value = sessionStorage.getItem("gender");
+document.getElementById("name").value = sessionStorage.getItem("name");
+document.getElementById("address").value = sessionStorage.getItem("ADaddress");
+document.getElementById("address2").value = sessionStorage.getItem("DEaddress"); 
+
+function mf() {
+  sessionStorage.setItem("password", document.getElementById("password").value);
+
+  var r = confirm("Confirm change(s)?");
+  if (r == true) {
+    document.getElementById("password").value = sessionStorage.getItem("password");
+  } 
+}
+
+document.getElementById("date").innerHTML = new Date();
+
+document.getElementById("aRecord").innerHTML = "Pet: " + localStorage.getItem("adoptForm") + "<br>Reason(s): " + localStorage.getItem("reason") + "<br>Adoption Number: "+ localStorage.getItem("adoptNo");
+
+document.getElementById("pRecord").innerHTML = "Product(s):<br> " + localStorage.getItem("purchaseForm") + "<br>Quantity:<br> " + localStorage.getItem("amount") + "<br>Purchase Number: " + localStorage.getItem("purchaseNo");
+
+</script>
+
+<div class="jumbotron text-center" style="margin-bottom:0" id="footer">
+  <p>Copyright © 2021 &nbsp DHNT Pets Online Station &nbsp All rights reserved.</p>
+  <a href="MemberPage.html" target="_self"><div class="fixed">Back</div></a>
+</div>
+</body>
+</html>
