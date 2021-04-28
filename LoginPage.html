@@ -113,18 +113,18 @@
 
 <br><h4 style="text-align: center;">Login to explore more handy functions!</h4><br>
 
-<form method="post" id="login" action="MemberPage.html" onsubmit="myFunction()">  
+<form id="login">  
 
-  <input type="text" name="username" id="username" placeholder="Enter Username" required>
+  <input type="text" name="username" id="username" placeholder="Enter Username" required onchange="v4()"><span id="error8"></span>
   <br><br>
 
   <input type="password" id="password" name="password" placeholder="Enter Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-  title="Must contain at least one number, one uppercase and lowercase letter. At least 8 or more characters." required>
+  title="Must contain at least one number, one uppercase and lowercase letter. At least 8 or more characters." required onchange="v4()"><span id="error9"></span>
   <br><input type="checkbox" onclick="showpsw()"> Show Password
   <br><br>
 
 
-  <input type="submit" class="btn btn-primary" name="submit" value="Submit" >  
+  <a href="MemberPage.html"><input type="button" class="btn btn-primary" name="submit" id="submit" value="Submit" onclick="myFunction()" ></a>  
   <input type="reset" class="btn btn-primary" name="reset" value=" Reset "> 
   <a href="index.html" class="btn btn-primary" role="button">Cancel</a>
 
