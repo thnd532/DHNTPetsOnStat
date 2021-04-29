@@ -192,8 +192,8 @@ function success() {
   localStorage.setItem("reason", document.getElementById("reason").value);
   
   var d = new Date();
-  var a = Math.floor(Math.random() * 100)+1;
-  var adn = "A" + d.getFullYear() + (d.getMonth()+1) + d.getDate() + d.getHours() + d.getMinutes() + a ;
+  var a = Math.floor(Math.random() * 1000)+1;
+  var adn = "MA" + d.getFullYear() + (d.getMonth()+1) + d.getDate() + d.getHours() + d.getMinutes() + a ;
 
   localStorage.setItem("adoptNo", adn);
 
